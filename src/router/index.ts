@@ -22,13 +22,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   },
-  {
-    path: "/403",
-    component: () => import("@/views/error-page/403.vue"),
-    meta: {
-      hidden: true
-    }
-  },
+
   {
     path: "/404",
     component: () => import("@/views/error-page/404.vue"),
@@ -61,6 +55,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   },
+
   {
     path: "/unocss",
     component: Layouts,
@@ -98,6 +93,37 @@ export const constantRoutes: RouteRecordRaw[] = [
         name: "Link2",
         meta: {
           title: "新手教程"
+        }
+      }
+    ]
+  },
+  {
+    path: "/error-page",
+    component: Layouts,
+    redirect: "/error-page/403",
+    name: "403页面",
+    meta: {
+      title: "403",
+      elIcon: "Grid"
+    },
+    children: [
+      {
+        path: "/error-page/403",
+        component: () => import("@/views/error-page/403.vue"),
+        name: "403",
+        meta: {
+          title: "403",
+          svgIcon: "unocss",
+          affix: true
+        }
+      },
+      {
+        path: "/error-page/404",
+        component: () => import("@/views/error-page/404.vue"),
+        name: "404",
+        meta: {
+          title: "404",
+          svgIcon: "unocss"
         }
       }
     ]
